@@ -13,3 +13,8 @@ program transfers were important, representing 10 percent of the average expendi
 beneficiary families in the sample.
 
 This repository will demonstrate the use of propensity score matching method to estimate the Average Treatment effect. 
+
+# File
+PROGRESA_dofile: Includes the code for data_cleaning, estimation and visualization
+PROGRESA_logfile: log of code history
+PROGRESA_Writeup: Rationalization of outputs in words
