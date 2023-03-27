@@ -16,5 +16,7 @@ This repository will demonstrate the use of propensity score matching method to 
 
 # File
 PROGRESA_dofile: Includes the code for data_cleaning, estimation and visualization
+
 PROGRESA_logfile: log of code history
+
 PROGRESA_Writeup: Rationalization of outputs in words
