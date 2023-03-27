@@ -1,0 +1,951 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\User\Downloads\Eco372 log file 2.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}25 Oct 2021, 09:45:53
+
+{com}. use "C:\Users\User\Downloads\pset2_data_ECO372_f21.dta"
+
+. do "C:\Users\User\Downloads\ECO372 Assingment 2.do"
+{txt}
+{com}. * Question a)  Compare the means of baseline characteristics (X's) of eligible vs. ineligiblechildren in treatment villages, to evaluate the balance of the groups. Interpret theresults.
+. 
+. foreach x in scbase welfare gender indig hohedu hohsex hohage fam_n dist_sec min_dist hidalgo mich puebla queret sanluis veracruz {c -(}
+{txt}  2{com}.         regress `x' eligible if Trpool == 1, cluster(village)
+{txt}  3{com}.         {c )-}
+
+{txt}Linear regression                               Number of obs     = {res}    13,289
+                                                {txt}F(1, 315)         =  {res}     8.46
+                                                {txt}Prob > F          = {res}    0.0039
+                                                {txt}R-squared         = {res}    0.0023
+                                                {txt}Root MSE          =    {res} .44484
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      scbase{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2}-.0543703{col 26}{space 2} .0186943{col 37}{space 1}   -2.91{col 46}{space 3}0.004{col 54}{space 4}-.0911518{col 67}{space 3}-.0175889
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .7714286{col 26}{space 2} .0193073{col 37}{space 1}   39.96{col 46}{space 3}0.000{col 54}{space 4}  .733441{col 67}{space 3} .8094161
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}  1111.42
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.3186
+                                                {txt}Root MSE          =    {res} 113.74
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     welfare{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2}-198.4234{col 26}{space 2}  5.95188{col 37}{space 1}  -33.34{col 46}{space 3}0.000{col 54}{space 4}-210.1339{col 67}{space 3}-186.7129
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 867.7138{col 26}{space 2} 7.116085{col 37}{space 1}  121.94{col 46}{space 3}0.000{col 54}{space 4} 853.7127{col 67}{space 3} 881.7149
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}     2.70
+                                                {txt}Prob > F          = {res}    0.1014
+                                                {txt}R-squared         = {res}    0.0004
+                                                {txt}Root MSE          =    {res} .49972
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      gender{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2} .0252074{col 26}{space 2} .0153436{col 37}{space 1}    1.64{col 46}{space 3}0.101{col 54}{space 4}-.0049815{col 67}{space 3} .0553962
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .4942756{col 26}{space 2} .0134594{col 37}{space 1}   36.72{col 46}{space 3}0.000{col 54}{space 4} .4677938{col 67}{space 3} .5207573
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}    43.02
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0268
+                                                {txt}Root MSE          =    {res} .43649
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}       indig{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2} .1848715{col 26}{space 2} .0281867{col 37}{space 1}    6.56{col 46}{space 3}0.000{col 54}{space 4} .1294134{col 67}{space 3} .2403296
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .1172523{col 26}{space 2} .0273309{col 37}{space 1}    4.29{col 46}{space 3}0.000{col 54}{space 4} .0634781{col 67}{space 3} .1710264
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}    24.77
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0126
+                                                {txt}Root MSE          =    {res} 2.5508
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      hohedu{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2}-.7362493{col 26}{space 2} .1479354{col 37}{space 1}   -4.98{col 46}{space 3}0.000{col 54}{space 4}-1.027316{col 67}{space 3}-.4451828
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 3.371891{col 26}{space 2} .1494236{col 37}{space 1}   22.57{col 46}{space 3}0.000{col 54}{space 4} 3.077897{col 67}{space 3} 3.665885
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}     1.64
+                                                {txt}Prob > F          = {res}    0.2009
+                                                {txt}R-squared         = {res}    0.0003
+                                                {txt}Root MSE          =    {res} .25795
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      hohsex{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2}-.0114923{col 26}{space 2} .0089657{col 37}{space 1}   -1.28{col 46}{space 3}0.201{col 54}{space 4}-.0291325{col 67}{space 3}  .006148
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .9376234{col 26}{space 2} .0081728{col 37}{space 1}  114.72{col 46}{space 3}0.000{col 54}{space 4} .9215431{col 67}{space 3} .9537036
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}    38.82
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0115
+                                                {txt}Root MSE          =    {res} 10.397
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      hohage{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2}-2.866442{col 26}{space 2}  .460044{col 37}{space 1}   -6.23{col 46}{space 3}0.000{col 54}{space 4}-3.771589{col 67}{space 3}-1.961294
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 48.34465{col 26}{space 2} .4397766{col 37}{space 1}  109.93{col 46}{space 3}0.000{col 54}{space 4} 47.47938{col 67}{space 3} 49.20992
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}    21.15
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0084
+                                                {txt}Root MSE          =    {res}  2.286
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}       fam_n{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2} .5368322{col 26}{space 2} .1167364{col 37}{space 1}    4.60{col 46}{space 3}0.000{col 54}{space 4} .3071506{col 67}{space 3} .7665137
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 6.812475{col 26}{space 2} .1159372{col 37}{space 1}   58.76{col 46}{space 3}0.000{col 54}{space 4} 6.584366{col 67}{space 3} 7.040585
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}     3.40
+                                                {txt}Prob > F          = {res}    0.0663
+                                                {txt}R-squared         = {res}    0.0027
+                                                {txt}Root MSE          =    {res} 1.8667
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}    dist_sec{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2} .2493293{col 26}{space 2} .1352925{col 37}{space 1}    1.84{col 46}{space 3}0.066{col 54}{space 4} -.016862{col 67}{space 3} .5155205
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  2.03279{col 26}{space 2} .1612502{col 37}{space 1}   12.61{col 46}{space 3}0.000{col 54}{space 4} 1.715526{col 67}{space 3} 2.350053
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}    26.63
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0232
+                                                {txt}Root MSE          =    {res} 40.503
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}    min_dist{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2} 15.91388{col 26}{space 2} 3.084073{col 37}{space 1}    5.16{col 46}{space 3}0.000{col 54}{space 4} 9.845899{col 67}{space 3} 21.98187
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  91.2591{col 26}{space 2} 3.779612{col 37}{space 1}   24.15{col 46}{space 3}0.000{col 54}{space 4} 83.82262{col 67}{space 3} 98.69557
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}     0.40
+                                                {txt}Prob > F          = {res}    0.5288
+                                                {txt}R-squared         = {res}    0.0003
+                                                {txt}Root MSE          =    {res} .40805
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     hidalgo{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2} .0193533{col 26}{space 2} .0306958{col 37}{space 1}    0.63{col 46}{space 3}0.529{col 54}{space 4}-.0410414{col 67}{space 3} .0797481
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .1954205{col 26}{space 2} .0373818{col 37}{space 1}    5.23{col 46}{space 3}0.000{col 54}{space 4} .1218708{col 67}{space 3} .2689701
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}     1.21
+                                                {txt}Prob > F          = {res}    0.2720
+                                                {txt}R-squared         = {res}    0.0004
+                                                {txt}Root MSE          =    {res} .34368
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        mich{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2} .0164126{col 26}{space 2}  .014914{col 37}{space 1}    1.10{col 46}{space 3}0.272{col 54}{space 4} -.012931{col 67}{space 3} .0457563
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .1235689{col 26}{space 2} .0245559{col 37}{space 1}    5.03{col 46}{space 3}0.000{col 54}{space 4} .0752546{col 67}{space 3} .1718832
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}     3.13
+                                                {txt}Prob > F          = {res}    0.0779
+                                                {txt}R-squared         = {res}    0.0048
+                                                {txt}Root MSE          =    {res} .36719
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      puebla{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2}-.0651552{col 26}{space 2} .0368408{col 37}{space 1}   -1.77{col 46}{space 3}0.078{col 54}{space 4}-.1376403{col 67}{space 3}   .00733
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .2143703{col 26}{space 2} .0465946{col 37}{space 1}    4.60{col 46}{space 3}0.000{col 54}{space 4} .1226944{col 67}{space 3} .3060462
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}     0.56
+                                                {txt}Prob > F          = {res}    0.4547
+                                                {txt}R-squared         = {res}    0.0007
+                                                {txt}Root MSE          =    {res} .21771
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      queret{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2}-.0144033{col 26}{space 2} .0192431{col 37}{space 1}   -0.75{col 46}{space 3}0.455{col 54}{space 4}-.0522646{col 67}{space 3}  .023458
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0615871{col 26}{space 2} .0285471{col 37}{space 1}    2.16{col 46}{space 3}0.032{col 54}{space 4}   .00542{col 67}{space 3} .1177541
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}     3.74
+                                                {txt}Prob > F          = {res}    0.0540
+                                                {txt}R-squared         = {res}    0.0036
+                                                {txt}Root MSE          =    {res} .36289
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     sanluis{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2} -.055569{col 26}{space 2} .0287309{col 37}{space 1}   -1.93{col 46}{space 3}0.054{col 54}{space 4}-.1120977{col 67}{space 3} .0009597
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .2017371{col 26}{space 2} .0374207{col 37}{space 1}    5.39{col 46}{space 3}0.000{col 54}{space 4} .1281109{col 67}{space 3} .2753633
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}    10.37
+                                                {txt}Prob > F          = {res}    0.0014
+                                                {txt}R-squared         = {res}    0.0073
+                                                {txt}Root MSE          =    {res} .40935
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}    veracruz{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2} .0894295{col 26}{space 2} .0277715{col 37}{space 1}    3.22{col 46}{space 3}0.001{col 54}{space 4} .0347885{col 67}{space 3} .1440705
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .1425188{col 26}{space 2} .0287096{col 37}{space 1}    4.96{col 46}{space 3}0.000{col 54}{space 4}  .086032{col 67}{space 3} .1990055
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *The result gives us the balance of pre observed characteristics limited to observations within treatment groups. Within the treatment groups, the treatment was not given in random assignment therefore, we don't expect all the baseline covariates to be balanced. In this comparison, there are few covariates that reject the null hypothesis and show significant level above 5%. Those are [gender hohsex dist_sec hidalgo mich puebla queret sanluis].         
+.         
+.         
+. *Question b) Construct estimates of the propensity score of treatment (eligibility) amongchildren in treated villages. Then, (i) evaluate the balance of observations in the treated and control groups by blocks of the estimated propensity score, and (ii)construct histograms or empirical estimates of the pdf of the estimated propensityscore for children in eligible vs. ineligible households in the treated villages.
+. 
+. *First set of covariates (all the covariates)
+. pscore eligible scbase welfare gender indig hohedu hohsex hohage fam_n dist_sec min_dist hidalgo mich puebla queret sanluis veracruz if Trpool == 1, pscore(est_pscore_all) blockid (block_num)
+
+
+
+{res}**************************************************** 
+Algorithm to estimate the propensity score 
+**************************************************** 
+
+
+The treatment is eligible
+
+   {txt}PROGRESA {c |}
+   eligible {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   no pobre {c |}{res}      2,533       18.96       18.96
+{txt}      pobre {c |}{res}     10,830       81.04      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     13,363      100.00
+
+
+
+Estimation of the propensity score 
+
+{txt}Iteration 0:   log likelihood = {res}-6454.2915
+{txt}Iteration 1:   log likelihood = {res} -4010.922
+{txt}Iteration 2:   log likelihood = {res}-3598.1636
+{txt}Iteration 3:   log likelihood = {res}-3541.8399
+{txt}Iteration 4:   log likelihood = {res}-3540.3317
+{txt}Iteration 5:   log likelihood = {res}-3540.3304
+
+{txt}Probit regression                                 Number of obs   = {res}     13289
+                                                  {txt}LR chi2({res}16{txt})     = {res}   5827.92
+                                                  {txt}Prob > chi2     = {res}    0.0000
+{txt}Log likelihood = {res}-3540.3304                       {txt}Pseudo R2       = {res}    0.4515
+
+{txt}{hline 13}{c TT}{hline 64}
+    eligible {c |} Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+{hline 13}{c +}{hline 64}
+      scbase {c |}  {res}-.1112845   .0397059    -2.80   0.005    -.1891067   -.0334623
+     {txt}welfare {c |}  {res}-.0099105   .0001988   -49.86   0.000       -.0103   -.0095209
+      {txt}gender {c |}  {res} .0707104   .0337025     2.10   0.036     .0046548    .1367661
+       {txt}indig {c |}  {res} .4145346   .0502953     8.24   0.000     .3159575    .5131116
+      {txt}hohedu {c |}  {res}-.0583496   .0071305    -8.18   0.000    -.0723251   -.0443741
+      {txt}hohsex {c |}  {res}-.1278128   .0651912    -1.96   0.050    -.2555853   -.0000403
+      {txt}hohage {c |}  {res}-.0124721   .0017996    -6.93   0.000    -.0159994   -.0089449
+       {txt}fam_n {c |}  {res}-.0023547   .0075676    -0.31   0.756    -.0171869    .0124776
+    {txt}dist_sec {c |}  {res} -.000367   .0100048    -0.04   0.971    -.0199759     .019242
+    {txt}min_dist {c |}  {res} .0048159    .000508     9.48   0.000     .0038203    .0058116
+     {txt}hidalgo {c |}  {res} .7471389   .0744092    10.04   0.000     .6012997    .8929782
+        {txt}mich {c |}  {res}-.3470145   .0813486    -4.27   0.000    -.5064548   -.1875743
+      {txt}puebla {c |}  {res} .4048178   .0791565     5.11   0.000     .2496739    .5599617
+      {txt}queret {c |}  {res} .5457526    .097707     5.59   0.000     .3542505    .7372547
+     {txt}sanluis {c |}  {res} .4574022   .0773568     5.91   0.000     .3057857    .6090187
+    {txt}veracruz {c |}  {res} .7114221   .0756801     9.40   0.000     .5630918    .8597523
+       {txt}_cons {c |}  {res} 8.398177   .2105153    39.89   0.000     7.985575     8.81078
+{txt}{hline 13}{c BT}{hline 64}
+
+
+
+{res}Description of the estimated propensity score 
+
+                 {txt}Estimated propensity score
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res} .0082925       6.00e-07
+{txt} 5%    {res} .1690621       6.00e-07
+{txt}10%    {res} .3885741       9.62e-07       {txt}Obs         {res}     13,289
+{txt}25%    {res}  .727449       6.03e-06       {txt}Sum of wgt. {res}     13,289
+
+{txt}50%    {res} .9399602                      {txt}Mean          {res} .8122904
+                        {txt}Largest       Std. dev.     {res} .2614832
+{txt}75%    {res} .9939464              1
+{txt}90%    {res} .9995265              1       {txt}Variance      {res} .0683735
+{txt}95%    {res} .9999277              1       {txt}Skewness      {res}-1.633105
+{txt}99%    {res} .9999991              1       {txt}Kurtosis      {res} 4.725598
+
+
+
+****************************************************** 
+Step 1: Identification of the optimal number of blocks 
+Use option detail if you want more detailed output 
+****************************************************** 
+
+
+{txt}The final number of blocks is 9
+
+This number of blocks ensures that the mean propensity score
+is not different for treated and controls in each blocks
+
+
+
+{res}********************************************************** 
+Step 2: Test of balancing property of the propensity score 
+Use option detail if you want more detailed output 
+********************************************************** 
+
+Variable hohsex is not balanced in block 1
+
+Variable fam_n is not balanced in block 1
+
+Variable min_dist is not balanced in block 1
+
+Variable puebla is not balanced in block 1
+
+Variable sanluis is not balanced in block 1
+
+Variable welfare is not balanced in block 2
+
+Variable min_dist is not balanced in block 2
+
+Variable indig is not balanced in block 4
+
+Variable mich is not balanced in block 4
+
+Variable sanluis is not balanced in block 4
+
+Variable hohage is not balanced in block 5
+
+Variable welfare is not balanced in block 6
+
+Variable hohsex is not balanced in block 6
+
+Variable fam_n is not balanced in block 6
+
+Variable min_dist is not balanced in block 6
+
+Variable veracruz is not balanced in block 6
+
+Variable welfare is not balanced in block 7
+
+Variable gender is not balanced in block 7
+
+Variable indig is not balanced in block 7
+
+Variable dist_sec is not balanced in block 7
+
+Variable min_dist is not balanced in block 7
+
+Variable hidalgo is not balanced in block 7
+
+Variable mich is not balanced in block 7
+
+Variable indig is not balanced in block 9
+
+Variable hohage is not balanced in block 9
+
+Variable dist_sec is not balanced in block 9
+
+Variable hidalgo is not balanced in block 9
+
+Variable puebla is not balanced in block 9
+
+Variable sanluis is not balanced in block 9
+
+Variable veracruz is not balanced in block 9
+
+{err}The balancing property is not satisfied 
+
+Try a different specification of the propensity score 
+
+  {txt}Inferior {c |}
+  of block {c |}   PROGRESA eligible
+of pscore  {c |}  no pobre      pobre {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         0 {c |}{res}       477        104 {txt}{c |}{res}       581 
+{txt}        .1 {c |}{res}       214         55 {txt}{c |}{res}       269 
+{txt}        .2 {c |}{res}       418        173 {txt}{c |}{res}       591 
+{txt}        .4 {c |}{res}       592        393 {txt}{c |}{res}       985 
+{txt}        .6 {c |}{res}       342        413 {txt}{c |}{res}       755 
+{txt}        .7 {c |}{res}       212        709 {txt}{c |}{res}       921 
+{txt}        .8 {c |}{res}       162      1,407 {txt}{c |}{res}     1,569 
+{txt}        .9 {c |}{res}        42      1,334 {txt}{c |}{res}     1,376 
+{txt}       .95 {c |}{res}        74      6,242 {txt}{c |}{res}     6,316 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}     2,533     10,830 {txt}{c |}{res}    13,363 
+
+
+******************************************* 
+End of the algorithm to estimate the pscore 
+******************************************* 
+{txt}
+{com}. 
+. regress est_pscore_all block_num, cluster(village)
+
+{txt}Linear regression                               Number of obs     = {res}    13,289
+                                                {txt}F(1, 315)         =  {res} 14295.02
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.9558
+                                                {txt}Root MSE          =    {res} .05495
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}est_pscore~l{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}block_num {c |}{col 14}{res}{space 2} .1086134{col 26}{space 2} .0009084{col 37}{space 1}  119.56{col 46}{space 3}0.000{col 54}{space 4}  .106826{col 67}{space 3} .1104007
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0367047{col 26}{space 2} .0071586{col 37}{space 1}    5.13{col 46}{space 3}0.000{col 54}{space 4} .0226199{col 67}{space 3} .0507894
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. histogram est_pscore_all, by(eligible)
+{res}{txt}
+{com}. 
+. twoway kdensity est_pscore_all if eligible == 1 ||kdensity est_pscore_all if eligible == 0
+{res}{txt}
+{com}. 
+. *Second set of covariates (variable with significant T-value)
+. pscore eligible scbase welfare indig hohedu hohage fam_n min_dist veracruz if Trpool == 1, pscore(est_pscore_tsig) blockid(block_num_2)
+
+
+
+{res}**************************************************** 
+Algorithm to estimate the propensity score 
+**************************************************** 
+
+
+The treatment is eligible
+
+   {txt}PROGRESA {c |}
+   eligible {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   no pobre {c |}{res}      2,533       18.96       18.96
+{txt}      pobre {c |}{res}     10,830       81.04      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     13,363      100.00
+
+
+
+Estimation of the propensity score 
+
+{txt}Iteration 0:   log likelihood = {res}-6454.2915
+{txt}Iteration 1:   log likelihood = {res}-4093.1903
+{txt}Iteration 2:   log likelihood = {res}-3743.1644
+{txt}Iteration 3:   log likelihood = {res}-3706.1546
+{txt}Iteration 4:   log likelihood = {res}-3705.5305
+{txt}Iteration 5:   log likelihood = {res}-3705.5303
+
+{txt}Probit regression                                 Number of obs   = {res}     13289
+                                                  {txt}LR chi2({res}8{txt})      = {res}   5497.52
+                                                  {txt}Prob > chi2     = {res}    0.0000
+{txt}Log likelihood = {res}-3705.5303                       {txt}Pseudo R2       = {res}    0.4259
+
+{txt}{hline 13}{c TT}{hline 64}
+    eligible {c |} Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+{hline 13}{c +}{hline 64}
+      scbase {c |}  {res}-.1229162   .0384301    -3.20   0.001    -.1982378   -.0475946
+     {txt}welfare {c |}  {res}-.0085623   .0001704   -50.24   0.000    -.0088963   -.0082283
+       {txt}indig {c |}  {res} .4789052   .0474784    10.09   0.000     .3858491    .5719612
+      {txt}hohedu {c |}  {res}-.0608719   .0069776    -8.72   0.000    -.0745478   -.0471961
+      {txt}hohage {c |}  {res}-.0148606   .0017368    -8.56   0.000    -.0182646   -.0114566
+       {txt}fam_n {c |}  {res}  .004226   .0072461     0.58   0.560    -.0099761    .0184281
+    {txt}min_dist {c |}  {res} .0063368    .000431    14.70   0.000     .0054921    .0071816
+    {txt}veracruz {c |}  {res} .3259838   .0460715     7.08   0.000     .2356854    .4162823
+       {txt}_cons {c |}  {res} 7.540654   .1709333    44.11   0.000      7.20563    7.875677
+{txt}{hline 13}{c BT}{hline 64}
+
+
+
+{res}Description of the estimated propensity score 
+
+                 {txt}Estimated propensity score
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res} .0132827       5.81e-06
+{txt} 5%    {res} .1771765       5.81e-06
+{txt}10%    {res} .4066016       7.92e-06       {txt}Obs         {res}     13,289
+{txt}25%    {res} .7305777       .0000259       {txt}Sum of wgt. {res}     13,289
+
+{txt}50%    {res}  .934911                      {txt}Mean          {res} .8122014
+                        {txt}Largest       Std. dev.     {res} .2561488
+{txt}75%    {res} .9906865              1
+{txt}90%    {res} .9988269              1       {txt}Variance      {res} .0656122
+{txt}95%    {res} .9997288              1       {txt}Skewness      {res}-1.642879
+{txt}99%    {res} .9999905              1       {txt}Kurtosis      {res} 4.792582
+
+
+
+****************************************************** 
+Step 1: Identification of the optimal number of blocks 
+Use option detail if you want more detailed output 
+****************************************************** 
+
+
+{txt}The final number of blocks is 16
+
+This number of blocks ensures that the mean propensity score
+is not different for treated and controls in each blocks
+
+
+
+{res}********************************************************** 
+Step 2: Test of balancing property of the propensity score 
+Use option detail if you want more detailed output 
+********************************************************** 
+
+Variable fam_n is not balanced in block 1
+
+Variable min_dist is not balanced in block 1
+
+Variable welfare is not balanced in block 2
+
+Variable fam_n is not balanced in block 2
+
+Variable min_dist is not balanced in block 2
+
+Variable scbase is not balanced in block 3
+
+Variable hohedu is not balanced in block 3
+
+Variable hohage is not balanced in block 3
+
+Variable indig is not balanced in block 4
+
+Variable min_dist is not balanced in block 4
+
+Variable fam_n is not balanced in block 5
+
+Variable welfare is not balanced in block 7
+
+Variable min_dist is not balanced in block 7
+
+Variable hohedu is not balanced in block 8
+
+Variable min_dist is not balanced in block 8
+
+Variable veracruz is not balanced in block 8
+
+Variable welfare is not balanced in block 9
+
+Variable hohedu is not balanced in block 9
+
+Variable veracruz is not balanced in block 9
+
+Variable welfare is not balanced in block 10
+
+Variable hohedu is not balanced in block 10
+
+Variable welfare is not balanced in block 13
+
+Variable indig is not balanced in block 13
+
+Variable hohage is not balanced in block 13
+
+Variable min_dist is not balanced in block 13
+
+Variable veracruz is not balanced in block 13
+
+Variable welfare is not balanced in block 14
+
+Variable indig is not balanced in block 14
+
+{err}The balancing property is not satisfied 
+
+Try a different specification of the propensity score 
+
+  {txt}Inferior {c |}
+  of block {c |}   PROGRESA eligible
+of pscore  {c |}  no pobre      pobre {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         0 {c |}{res}       440         99 {txt}{c |}{res}       539 
+{txt}        .1 {c |}{res}       208         49 {txt}{c |}{res}       257 
+{txt}        .2 {c |}{res}       381        190 {txt}{c |}{res}       571 
+{txt}        .4 {c |}{res}       583        442 {txt}{c |}{res}     1,025 
+{txt}        .6 {c |}{res}       277        445 {txt}{c |}{res}       722 
+{txt}        .7 {c |}{res}       169        273 {txt}{c |}{res}       442 
+{txt}       .75 {c |}{res}       132        411 {txt}{c |}{res}       543 
+{txt}        .8 {c |}{res}        61        243 {txt}{c |}{res}       304 
+{txt}      .825 {c |}{res}        57        362 {txt}{c |}{res}       419 
+{txt}       .85 {c |}{res}       107        882 {txt}{c |}{res}       989 
+{txt}        .9 {c |}{res}        38      1,482 {txt}{c |}{res}     1,520 
+{txt}       .95 {c |}{res}        17      1,249 {txt}{c |}{res}     1,266 
+{txt}      .975 {c |}{res}        36      1,026 {txt}{c |}{res}     1,062 
+{txt}     .9875 {c |}{res}        20        901 {txt}{c |}{res}       921 
+{txt}    .99375 {c |}{res}         7        680 {txt}{c |}{res}       687 
+{txt}   .996875 {c |}{res}         0      2,096 {txt}{c |}{res}     2,096 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}     2,533     10,830 {txt}{c |}{res}    13,363 
+
+
+******************************************* 
+End of the algorithm to estimate the pscore 
+******************************************* 
+{txt}
+{com}. 
+. regress est_pscore_all block_num_2, cluster(village)
+
+{txt}Linear regression                               Number of obs     = {res}    13,289
+                                                {txt}F(1, 315)         =  {res}  2441.25
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.7761
+                                                {txt}Root MSE          =    {res} .12373
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}est_pscore~l{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}block_num_2 {c |}{col 14}{res}{space 2} .0507595{col 26}{space 2} .0010273{col 37}{space 1}   49.41{col 46}{space 3}0.000{col 54}{space 4} .0487382{col 67}{space 3} .0527808
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .2951039{col 26}{space 2} .0117554{col 37}{space 1}   25.10{col 46}{space 3}0.000{col 54}{space 4} .2719748{col 67}{space 3}  .318233
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. histogram est_pscore_tsig if Trpool == 1, by(eligible)
+{res}{txt}
+{com}. 
+. twoway kdensity est_pscore_tsig if eligible == 1 ||kdensity est_pscore_tsig if eligible == 0
+{res}{txt}
+{com}. 
+. 
+. *Third set of covariates (variables with P > |t| significant)
+. pscore eligible gender hohsex dist_sec hidalgo mich puebla queret sanluis if Trpool == 1, pscore(est_pscore_psig) blockid (block_num_3)
+
+
+
+{res}**************************************************** 
+Algorithm to estimate the propensity score 
+**************************************************** 
+
+
+The treatment is eligible
+
+   {txt}PROGRESA {c |}
+   eligible {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   no pobre {c |}{res}      2,533       18.96       18.96
+{txt}      pobre {c |}{res}     10,830       81.04      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     13,363      100.00
+
+
+
+Estimation of the propensity score 
+
+{txt}Iteration 0:   log likelihood = {res}-6488.7322
+{txt}Iteration 1:   log likelihood = {res}-6386.2061
+{txt}Iteration 2:   log likelihood = {res}-6385.9696
+{txt}Iteration 3:   log likelihood = {res}-6385.9696
+
+{txt}Probit regression                                 Number of obs   = {res}     13363
+                                                  {txt}LR chi2({res}8{txt})      = {res}    205.53
+                                                  {txt}Prob > chi2     = {res}    0.0000
+{txt}Log likelihood = {res}-6385.9696                       {txt}Pseudo R2       = {res}    0.0158
+
+{txt}{hline 13}{c TT}{hline 64}
+    eligible {c |} Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+{hline 13}{c +}{hline 64}
+      gender {c |}  {res} .0574773   .0252543     2.28   0.023     .0079798    .1069749
+      {txt}hohsex {c |}  {res}-.0877192   .0502953    -1.74   0.081    -.1862962    .0108577
+    {txt}dist_sec {c |}  {res}  .028593   .0072631     3.94   0.000     .0143576    .0428285
+     {txt}hidalgo {c |}  {res}-.1424039   .0381696    -3.73   0.000    -.2172149    -.067593
+        {txt}mich {c |}  {res}-.1272962   .0433098    -2.94   0.003    -.2121819   -.0424104
+      {txt}puebla {c |}  {res}-.4039752    .039386   -10.26   0.000    -.4811704     -.32678
+      {txt}queret {c |}  {res}-.3928556   .0594818    -6.60   0.000    -.5094378   -.2762734
+     {txt}sanluis {c |}  {res}-.3659911   .0404647    -9.04   0.000    -.4453004   -.2866817
+       {txt}_cons {c |}  {res}  1.07129   .0582607    18.39   0.000      .957101    1.185479
+{txt}{hline 13}{c BT}{hline 64}
+
+
+
+{res}Description of the estimated propensity score 
+
+                 {txt}Estimated propensity score
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res} .7189063       .7189063
+{txt} 5%    {res} .7315737       .7189063
+{txt}10%    {res} .7405046       .7189063       {txt}Obs         {res}     13,363
+{txt}25%    {res} .7632835       .7189063       {txt}Sum of wgt. {res}     13,363
+
+{txt}50%    {res} .8206998                      {txt}Mean          {res} .8104171
+                        {txt}Largest       Std. dev.     {res} .0484316
+{txt}75%    {res} .8510734        .915157
+{txt}90%    {res} .8672283       .9174433       {txt}Variance      {res} .0023456
+{txt}95%    {res} .8770492       .9174433       {txt}Skewness      {res}-.2681975
+{txt}99%    {res} .8930441        .927983       {txt}Kurtosis      {res} 1.834294
+
+
+
+****************************************************** 
+Step 1: Identification of the optimal number of blocks 
+Use option detail if you want more detailed output 
+****************************************************** 
+
+
+{txt}The final number of blocks is 19
+
+This number of blocks ensures that the mean propensity score
+is not different for treated and controls in each blocks
+
+
+
+{res}********************************************************** 
+Step 2: Test of balancing property of the propensity score 
+Use option detail if you want more detailed output 
+********************************************************** 
+
+Variable gender is not balanced in block 11
+
+Variable dist_sec is not balanced in block 11
+
+Variable puebla is not balanced in block 12
+
+Variable dist_sec is not balanced in block 14
+
+Variable puebla is not balanced in block 14
+
+Variable sanluis is not balanced in block 14
+
+Variable queret is not balanced in block 15
+
+Variable sanluis is not balanced in block 15
+
+Variable gender is not balanced in block 16
+
+Variable hohsex is not balanced in block 17
+
+Variable hidalgo is not balanced in block 17
+
+Variable hohsex is not balanced in block 19
+
+Variable dist_sec is not balanced in block 19
+
+{err}The balancing property is not satisfied 
+
+Try a different specification of the propensity score 
+
+  {txt}Inferior {c |}
+  of block {c |}   PROGRESA eligible
+of pscore  {c |}  no pobre      pobre {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+    .71875 {c |}{res}        96        165 {txt}{c |}{res}       261 
+{txt}  .7195312 {c |}{res}        19          7 {txt}{c |}{res}        26 
+{txt}   .721875 {c |}{res}         0         28 {txt}{c |}{res}        28 
+{txt}      .725 {c |}{res}       482      1,197 {txt}{c |}{res}     1,679 
+{txt}       .75 {c |}{res}       466      1,699 {txt}{c |}{res}     2,165 
+{txt}      .775 {c |}{res}        50        108 {txt}{c |}{res}       158 
+{txt}   .778125 {c |}{res}         8        110 {txt}{c |}{res}       118 
+{txt}    .78125 {c |}{res}        43        166 {txt}{c |}{res}       209 
+{txt}     .7875 {c |}{res}        71        392 {txt}{c |}{res}       463 
+{txt}        .8 {c |}{res}       792      3,956 {txt}{c |}{res}     4,748 
+{txt}       .85 {c |}{res}       498      2,924 {txt}{c |}{res}     3,422 
+{txt}        .9 {c |}{res}         8         78 {txt}{c |}{res}        86 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}     2,533     10,830 {txt}{c |}{res}    13,363 
+
+
+******************************************* 
+End of the algorithm to estimate the pscore 
+******************************************* 
+{txt}
+{com}. 
+. regress est_pscore_psig block_num_3, cluster(village)
+
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}  1572.14
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.8953
+                                                {txt}Root MSE          =    {res} .01567
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}est_psc~psig{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}block_num_3 {c |}{col 14}{res}{space 2} .0155609{col 26}{space 2} .0003925{col 37}{space 1}   39.65{col 46}{space 3}0.000{col 54}{space 4} .0147887{col 67}{space 3}  .016333
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .5717474{col 26}{space 2} .0059683{col 37}{space 1}   95.80{col 46}{space 3}0.000{col 54}{space 4} .5600045{col 67}{space 3} .5834902
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. histogram est_pscore_psig if Trpool == 1, by(eligible)
+{res}{txt}
+{com}. 
+. twoway kdensity est_pscore_psig if eligible == 1 ||kdensity est_pscore_psig if eligible == 0
+{res}{txt}
+{com}. 
+. 
+. *For this question I constructed 3 different sets of covariates to construct 3 different estimated propensity scores. Out of 3 models, we can pick the best one by visually inspecting the overlap in histogram and also checking the balance between estimated propensity scores in blocks. However, it is worthy to mention that none of these models satisfy the balancing property and therefore none of them are "ideal". By visually inspecting the pdf and histogram of estimated pscores, a set of covariates formed by their significant p-value (est_pscore_psig) have the best overlap. The intuition would indicate that the best overlapping model would also have the most balanced blocks. This is proven to be true as well. We regress our pscore by blockid and see psig model has the lowest tvalue although all 3 models have t value that rejects the null hypothesis. 
+. 
+. *Question C)Construct  estimates  of  the ATT  using  inverse propensity  score weights based on the  best set  of covariates determined  in step (b).Compare  these  estimates  to the non-experimentalestimates generated from the simple differences of eligible and ineligible children (in Assignment 1). 
+. 
+. *Esitmated ATET with all the covariates
+. teffects ipw (sc) (eligible scbase welfare gender indig hohedu hohsex hohage fam_n dist_sec min_dist hidalgo mich puebla queret sanluis veracruz) if Trpool == 1, atet vce(cluster village)
+
+{res}{txt}Iteration 0:{space 3}EE criterion = {res: 9.837e-24}  
+Iteration 1:{space 3}EE criterion = {res: 7.508e-32}  
+{res}
+{txt}Treatment-effects estimation{col 49}Number of obs {col 67}= {res}    13,289
+{txt:Estimator}{col 16}:{res: inverse-probability weights}
+{txt:Outcome model}{col 16}:{res: weighted mean}
+{txt:Treatment model}{col 16}:{res: logit}
+{txt}{ralign 86:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}                  sc{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      z{col 54}   P>|z|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ATET                 {txt}{c |}
+{space 12}eligible {c |}
+(pobre vs no pobre)  {c |}{col 22}{res}{space 2} .0921629{col 34}{space 2} .0521054{col 45}{space 1}    1.77{col 54}{space 3}0.077{col 62}{space 4}-.0099618{col 75}{space 3} .1942876
+{txt}{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}POmean               {txt}{c |}
+{space 12}eligible {c |}
+{space 11}no pobre  {c |}{col 22}{res}{space 2} .5103072{col 34}{space 2}  .051884{col 45}{space 1}    9.84{col 54}{space 3}0.000{col 62}{space 4} .4086165{col 75}{space 3} .6119978
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. *Estimated ATET with covarites with tsig
+. teffects ipw (sc) ( eligible scbase welfare indig hohedu hohage fam_n min_dist veracruz) if Trpool == 1, atet vce(cluster village)
+
+{res}{txt}Iteration 0:{space 3}EE criterion = {res: 1.628e-24}  
+Iteration 1:{space 3}EE criterion = {res: 4.517e-32}  
+{res}
+{txt}Treatment-effects estimation{col 49}Number of obs {col 67}= {res}    13,289
+{txt:Estimator}{col 16}:{res: inverse-probability weights}
+{txt:Outcome model}{col 16}:{res: weighted mean}
+{txt:Treatment model}{col 16}:{res: logit}
+{txt}{ralign 86:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}                  sc{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      z{col 54}   P>|z|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ATET                 {txt}{c |}
+{space 12}eligible {c |}
+(pobre vs no pobre)  {c |}{col 22}{res}{space 2} .0785848{col 34}{space 2} .0371089{col 45}{space 1}    2.12{col 54}{space 3}0.034{col 62}{space 4} .0058527{col 75}{space 3}  .151317
+{txt}{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}POmean               {txt}{c |}
+{space 12}eligible {c |}
+{space 11}no pobre  {c |}{col 22}{res}{space 2} .5238852{col 34}{space 2} .0372617{col 45}{space 1}   14.06{col 54}{space 3}0.000{col 62}{space 4} .4508537{col 75}{space 3} .5969168
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. *Estimated ATET with covarites with psig
+. teffects ipw (sc) (eligible gender hohsex dist_sec hidalgo mich puebla queret sanluis) if Trpool == 1, atet vce(cluster village)
+
+{res}{txt}Iteration 0:{space 3}EE criterion = {res: 8.955e-22}  
+Iteration 1:{space 3}EE criterion = {res: 1.896e-33}  
+{res}
+{txt}Treatment-effects estimation{col 49}Number of obs {col 67}= {res}    13,363
+{txt:Estimator}{col 16}:{res: inverse-probability weights}
+{txt:Outcome model}{col 16}:{res: weighted mean}
+{txt:Treatment model}{col 16}:{res: logit}
+{txt}{ralign 86:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}                  sc{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      z{col 54}   P>|z|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}ATET                 {txt}{c |}
+{space 12}eligible {c |}
+(pobre vs no pobre)  {c |}{col 22}{res}{space 2}-.0137647{col 34}{space 2} .0180717{col 45}{space 1}   -0.76{col 54}{space 3}0.446{col 62}{space 4}-.0491847{col 75}{space 3} .0216552
+{txt}{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}POmean               {txt}{c |}
+{space 12}eligible {c |}
+{space 11}no pobre  {c |}{col 22}{res}{space 2} .6153344{col 34}{space 2} .0200835{col 45}{space 1}   30.64{col 54}{space 3}0.000{col 62}{space 4} .5759716{col 75}{space 3} .6546973
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. *Estimated ATET from non experimental model 
+. regress sc eligible if Trpool==1, cluster(village)
+
+{txt}Linear regression                               Number of obs     = {res}    13,363
+                                                {txt}F(1, 315)         =  {res}     0.08
+                                                {txt}Prob > F          = {res}    0.7722
+                                                {txt}R-squared         = {res}    0.0000
+                                                {txt}Root MSE          =    {res} .48938
+
+{txt}{ralign 78:(Std. err. adjusted for {res:316} clusters in {res:village})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}          sc{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2}-.0056154{col 26}{space 2} .0193774{col 37}{space 1}   -0.29{col 46}{space 3}0.772{col 54}{space 4}-.0437409{col 67}{space 3} .0325101
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .6071852{col 26}{space 2} .0203178{col 37}{space 1}   29.88{col 46}{space 3}0.000{col 54}{space 4} .5672095{col 67}{space 3} .6471608
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *Using inverse propensity score weights, we estimated the average treatment effect with 3 models constructed. Comparing the estimated average treatment effect from non-experimental data, we see that our "best" model from part b is actually the closest to it. This is contradicting our intuition as we know the average treatment effect from non experimental models is a "bad" estimate and our best model of propensity score matching should be better than this. The other 2 model's estimate does follow general intuition but we know the model has bad overlap and high tvalue. The reason why my best model gives out a bad estimate could be that it failed to have balanced pscore in blocks and therefore failed to reduce the downward bias or even worsened it. 
+. 
+. 
+{txt}end of do-file
+
+{com}. save "C:\Users\User\Downloads\pset2_data_ECO372_f21.dta", replace
+{txt}{p 0 4 2}
+file {bf}
+C:\Users\User\Downloads\pset2_data_ECO372_f21.dta{rm}
+saved
+{p_end}
+
+{com}. exit
